@@ -14,6 +14,9 @@
     "moment": "^2.13.0",
     "nforce": "^1.4.1",
     "numeral": "^1.5.3",
+    "request": "^2.71.0",
+    "pinterest-api": "^1.1.4",
+    "python-shell": "^0.4.0",
     "request": "^2.71.0"
   }
 }

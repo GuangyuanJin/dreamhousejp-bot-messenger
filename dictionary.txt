@@ -1,3 +1,5 @@
+pinterest http://pin.it
+notInterested 興味無い
 searchHouse_Bedrooms_City_Range 部屋数:(.*) 場所:(.*) 価格:(.*)から(.*)の間
 searchHouse_Bedrooms_City 部屋数:(.*) 場所:(.*)
 searchHouse_City 場所:(.*)
