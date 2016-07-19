@@ -6,7 +6,7 @@ let salesforce = require('./salesforce'),
     fetchUrl = require('fetch').fetchUrl,
     pinterestAPI = require('pinterest-api'),
     request = require('request');
-    
+
 exports.searchHouse = (sender) => {
     messenger.send({text: `かしこまりました。現在売り出し中の物件を検索しています...`}, sender);
     salesforce.findProperties().then(properties => {
@@ -110,7 +110,7 @@ exports.pinterest = (sender, values) => {
                 salesforce.findProperties({Home_Style__c: 'Contemporary'}).then(properties => {
                     messenger.send(formatter.formatProperties(properties), sender);
                 });
-            }, 2222);
+            }, 6666);
         });
     });
 };
