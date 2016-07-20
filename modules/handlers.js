@@ -107,7 +107,7 @@ exports.pinterest = (sender, values) => {
             messenger.send({text: `Pinterestボードの共有ありがとうございます。少々お待ちください...`}, sender);
             setTimeout(function(){
                 messenger.send({text: '素晴らしいですね。画像を分析した結果、現代的な住居がお好みのようでした。以下の住居などはいかがでしょうか？'}, sender);
-                salesforce.findProperties({Style__c: '現代的'}).then(properties => {
+                salesforce.findProperties({style: '現代的'}).then(properties => {
                     messenger.send(formatter.formatProperties(properties), sender);
                 });
             }, 6666);
