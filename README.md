@@ -29,7 +29,7 @@ Salesforce 接続アプリケーションをまだ作成していない場合は
 1. [Heroku ダッシュボード](https://dashboard.heroku.com/)にログインしていることを確認します。
 1. 下のボタンをクリックして、Messenger Bot を Heroku にデプロイします。
 
-    [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+  [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 1. 以下の通りに環境変数を設定します。
 
