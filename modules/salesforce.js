@@ -108,8 +108,6 @@ let findPropertiesByCategory = (category) => {
             }
         });
     });
-
->>>>>>> fork/master
 };
 
 let findPriceChanges = () => {
