@@ -46,3 +46,7 @@ exports.contact_me = (sender, values) => {
     });
 
 };
+
+exports.confirm_cancel = (sender, values) => {
+  messenger.send({text: `大変失礼致しました。処理をキャンセルします。質問は単純にするほど理解しやすくなります。`}, sender);
+};

@@ -162,7 +162,7 @@ exports.formatNLP = values => {
                     {
                         "type": "postback",
                         "title": "いいえ",
-                        "payload": ""//"confirm_nlp," + values[1] + ", " + values[2]  + "," + "いいえ"
+                        "payload": "confirm_cancel"
                     }]
             }
         }
