@@ -21,6 +21,10 @@ exports.searchHouse_City = (sender, values) => {
     });
 };
 
+exports.searchHouse_NLP = (sender, values) => {
+    messenger.send(formatter.formatNLP(values), sender);
+};
+
 exports.searchHouse_Bedrooms_City_Range = (sender, values) => {
     messenger.send({text: `かしこまりました。部屋数:${values[1]} 場所:${values[2]} 価格帯: ${values[3]} から ${values[4]} の物件を検索しています...`}, sender);
     var priceMin = values[3] <= 1000000 ? values[3] * 10000 : values[3];

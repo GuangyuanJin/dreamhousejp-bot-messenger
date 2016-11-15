@@ -145,3 +145,26 @@ exports.formatBroker = (broker,propertyId) => {
         }
     };
 };
+
+exports.formatNLP = values => {
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": `お問い合わせありがとうございます。"${values[1]}" 近辺で "${values[2]}" の物件をお探し。という理解で宜しいでしょうか？`,
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "はい",
+                        "payload": "confirm_nlp," + values[1] + ", " + values[2]  + ")," + "はい"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "いいえ",
+                        "payload": "confirm_nlp," + values[1] + ", " + values[2]  + ")," + "いいえ"
+                    }]
+            }
+        }
+    };
+};
