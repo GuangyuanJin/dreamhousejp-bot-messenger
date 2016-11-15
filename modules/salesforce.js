@@ -140,9 +140,6 @@ let findPriceChanges = () => {
     });
 };
 
-
-
-
 let createCase = (topicName,propertyId,customerName,customerId) => {
 
     return new Promise((resolve, reject) => {

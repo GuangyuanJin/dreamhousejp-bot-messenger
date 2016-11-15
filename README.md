@@ -29,7 +29,7 @@ Salesforce 接続アプリケーションをまだ作成していない場合は
 1. [Heroku ダッシュボード](https://dashboard.heroku.com/)にログインしていることを確認します。
 1. 下のボタンをクリックして、Messenger Bot を Heroku にデプロイします。
 
-    [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+  [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 1. 以下の通りに環境変数を設定します。
 
@@ -54,4 +54,4 @@ Salesforce 接続アプリケーションをまだ作成していない場合は
     - **トークンの確認** を求められたら、Heroku アプリをデプロイするときに **FB_VERIFY_TOKEN** 環境変数に入力したのと同じ値を入力します。
     - ［**Select a page to subscribe your webhook...**］ドロップダウンでページを選択します。
 
-1. 前のステップで作成した Facebook ページにアクセスし、［**メッセージ**］ボタンをクリックします。チャットBotに「**ヘルプ**」と入力します。Botとの会話は、スマートフォンの Messenger アプリでもブラウザでも（http://messenger.com）続けることができます。
+1. 前のステップで作成した Facebook ページにアクセスし、［**メッセージ**］ボタンをクリックします。チャットBotに「**ヘルプ**」と入力します。Botとの会話は、スマートフォンの Messenger アプリでもブラウザでも（ http://messenger.com/ ）続けることができます。
