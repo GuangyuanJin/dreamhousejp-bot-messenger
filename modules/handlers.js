@@ -4,7 +4,6 @@ let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
     formatter = require('./formatter'),
     fetchUrl = require('fetch').fetchUrl,
-    pinterestAPI = require('pinterest-api'),
     request = require('request');
 
 exports.searchHouse = (sender) => {
