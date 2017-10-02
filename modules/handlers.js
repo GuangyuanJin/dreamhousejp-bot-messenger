@@ -4,7 +4,6 @@ let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
     formatter = require('./formatter'),
     fetchUrl = require('fetch').fetchUrl,
-    pinterestAPI = require('pinterest-api'),
     request = require('request');
 
 exports.searchHouse = (sender) => {
@@ -64,62 +63,9 @@ exports.priceChanges = (sender, values) => {
     });
 };
 
-exports.notInterested = (sender) => {
-    messenger.send({text: `申し訳ございません。どのようなお住まいをお探しでしょうか? もしお気に入りの住居を集めたPinterestのボードをお持ちでしたら、共有いただけないでしょうか？似たような物件をそこから探し出させていただきます。`}, sender);
-}
-
-exports.pinterest = (sender, values) => {
-
-    const pinterest_api = 'https://staging.metamind.io/vision/classify';
-    const pinterest_key = 'w2eiD3Hsg09oMQH3riBURXkXC1ybebn07uLYONsItq9Eeq4HZJ';
-    const classifierId = 7377;
-
-    // request.post({
-    //     url: pinterest_api,
-    //     headers: {
-    //         Authorization: `Basic ${pinterest_key}`
-    //     },
-    //     timeout: 1500,
-    //     body: JSON.stringify({image_url: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Ellen_H._Swallow_Richards_House_Boston_MA_01.jpg', classifier_id: classifierId })
-    // }, (err, res, body) => {
-    //     console.log('>>>>>>>>>>>>>>>>>>');
-    //     if(err) console.log(err);
-    //     console.log(body);
-    // })
-
-
-    var finalUrl, pinterest_user, pinterest_board;
-    fetchUrl(values.input, function(error, meta, body){
-        console.log('>>>>>>>>>>>>>>>' + meta.finalUrl);
-        finalUrl = meta.finalUrl;
-        var ind = finalUrl.indexOf('pinterest.com');
-        var pieces = finalUrl.substring(ind+13+1).split('/');
-        pinterest_user = pieces[0];
-        pinterest_board = pieces[1];
-
-        console.log('>>>>> pinterest user: ' + pinterest_user);
-        console.log('>>>>> pinterest board: ' + pinterest_board);
-
-        // var pinterest = pinterestAPI(pinterest_user);
-        var pinterest = pinterestAPI('juliana211');
-
-        pinterest.getPinsFromBoard('my-dream-house', true, function (pins) {
-            for (var i=0; i<pins.data.length; i++){
-                console.log(pins.data[i].images['237x'].url);
-            }
-
-            messenger.send({text: `Pinterestボードの共有ありがとうございます。少々お待ちください...`}, sender);
-            setTimeout(function(){
-                messenger.send({text: '素晴らしいですね。画像を分析した結果、現代的な住居がお好みのようでした。以下の住居などはいかがでしょうか？'}, sender);
-                salesforce.findProperties({style: '現代的'}).then(properties => {
-                    messenger.send(formatter.formatProperties(properties), sender);
-                });
-            }, 6666);
-        });
-    });
+exports.searchHouse_Image = (sender) => {
+    messenger.send({text: `どのようなお住まいをお探しでしょうか? お手元の画像からEinsteinのAIを使って、お客様の好みに似た物件を探し出させていただきます。このチャットにお部屋や住宅の画像を送信頂けますでしょうか？`}, sender);
 };
-
-
 
 exports.hi = (sender) => {
     messenger.getUserInfo(sender).then(response => {
