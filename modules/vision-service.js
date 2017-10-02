@@ -15,8 +15,6 @@ let request = require('request'),
       });
 
 exports.classify = (imageURL) => new Promise((resolve, reject) => {
-  console.log("通過");
-  console.log("画像:" + imageURL);
   request({
       url: EINSTEIN_VISION_URL + "v1/vision/predict",
       headers: {
@@ -46,7 +44,7 @@ exports.classify = (imageURL) => new Promise((resolve, reject) => {
         var bodyObj = JSON.parse(response.body);
         bodyObj.probabilities.forEach(probab => {
           if(probability <= probab.probability){
-            label = probab.label;
+            label = probab.label.toLowerCase();
           }
         });
         var resultLabel ='開放的';
