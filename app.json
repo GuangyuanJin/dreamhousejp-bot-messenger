@@ -26,6 +26,14 @@
     "SF_PASSWORD": {
       "description": "インテグレーション用のSalesforceユーザのパスワード",
       "value":""
+    },
+    "EINSTEIN_VISION_MODEL_TOKEN": {
+      "description": "Einstein Visionのトークン",
+      "value":""
+    },
+    "EINSTEIN_VISION_MODEL_ID": {
+      "description": "Einstein VisionのモデルID",
+      "value":""
     }
   }
 }

@@ -1,6 +1,3 @@
-notInterested 興味が無い
-notInterested 興味無い
-notInterested 見つからない
 searchHouse_Image 画像で探す
 searchHouse_Bedrooms_City_Range 部屋数:(.*) 場所:(.*) 価格:(.*)から(.*)の間
 searchHouse_Bedrooms_City 部屋数:(.*) 場所:(.*)
