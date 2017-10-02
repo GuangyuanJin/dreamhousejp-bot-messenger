@@ -21,6 +21,13 @@ exports.contact_broker = (sender, values) => {
     });
 };
 
+exports.confirm_nlp = (sender, values) => {
+  messenger.send({text: `かしこまりました。"${values[1]}" 近辺で "${values[2]}" の物件を探しています...`}, sender);
+  salesforce.findProperties({city: values[1]}).then(properties => {
+      messenger.send(formatter.formatProperties(properties), sender);
+  });
+};
+
 exports.confirm_visit = (sender, values) => {
   messenger.getUserInfo(sender).then(response => {
       salesforce.createCase("内覧予約",values[1], response.last_name + " " + response.first_name,sender).then(() => {
@@ -38,4 +45,8 @@ exports.contact_me = (sender, values) => {
         });
     });
 
+};
+
+exports.confirm_cancel = (sender, values) => {
+  messenger.send({text: `大変失礼致しました。処理をキャンセルします。質問は単純にするほど理解しやすくなります。`}, sender);
 };

@@ -2,7 +2,10 @@
 
 let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
-    formatter = require('./formatter');
+    formatter = require('./formatter'),
+    fetchUrl = require('fetch').fetchUrl,
+    pinterestAPI = require('pinterest-api'),
+    request = require('request');
 
 exports.searchHouse = (sender) => {
     messenger.send({text: `かしこまりました。現在売り出し中の物件を検索しています...`}, sender);
@@ -55,6 +58,10 @@ exports.priceChanges = (sender, values) => {
     salesforce.findPriceChanges().then(priceChanges => {
         messenger.send(formatter.formatPriceChanges(priceChanges), sender);
     });
+};
+
+exports.searchHouse_Image = (sender) => {
+    messenger.send({text: `どのようなお住まいをお探しでしょうか? お手元の画像からEinsteinのAIを使って、お客様の好みに似た物件を探し出させていただきます。このチャットにお部屋や住宅の画像を送信頂けますでしょうか？`}, sender);
 };
 
 exports.hi = (sender) => {

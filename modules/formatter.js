@@ -13,7 +13,7 @@ exports.formatProperties = properties => {
     properties.forEach(property => {
             elements.push({
                 title: property.get("Title__c"),
-                subtitle: `${property.get("Address__c")}, ${property.get("City__c")} ${property.get("State__c")} · ${numeral(property.get("Price__c")).format('￥0,0')}`,
+                subtitle: `${property.get("Address__c")}, ${property.get("City__c")} ${property.get("State__c")} · ￥${numeral(property.get("Price__c")).format('0,0')}`,
                 "image_url": property.get("Picture__c"),
                 "buttons": [
                     {
@@ -52,7 +52,7 @@ exports.formatPriceChanges = priceChanges => {
             let property = priceChange.get("Parent");
             elements.push({
                 title: `${property.Address__c}, ${property.City__c} ${property.State__c}`,
-                subtitle: `過去の価格: ${numeral(priceChange.get("OldValue")).format('￥0,0')} · 新しい価格: ${numeral(priceChange.get("NewValue")).format('￥0,0')} 変更日: ${moment(priceChange.get("CreatedDate")).format("MM/DD (ddd)")}`,
+                subtitle: `過去の価格: ￥${numeral(priceChange.get("OldValue")).format('0,0')} · 新しい価格: ￥${numeral(priceChange.get("NewValue")).format('0,0')} 変更日: ${moment(priceChange.get("CreatedDate")).format("MM/DD (ddd)")}`,
                 "image_url": property.Picture__c,
                 "buttons": [
                     {

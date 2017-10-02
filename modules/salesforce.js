@@ -35,6 +35,7 @@ let findProperties = (params) => {
         if (params.bedrooms) parts.push(`beds__c=${params.bedrooms}`);
         if (params.priceMin) parts.push(`price__c>=${params.priceMin}`);
         if (params.priceMax) parts.push(`price__c<=${params.priceMax}`);
+        if (params.style) parts.push(`tags__c='${params.style}'`);
         if (parts.length>0) {
             where = "WHERE " + parts.join(' AND ');
         }
@@ -49,6 +50,7 @@ let findProperties = (params) => {
                     beds__c,
                     baths__c,
                     picture__c,
+                    tags__c,
                     broker__c
                 FROM property__c
                 ${where}
@@ -139,9 +141,6 @@ let findPriceChanges = () => {
         });
     });
 };
-
-
-
 
 let createCase = (topicName,propertyId,customerName,customerId) => {
 
