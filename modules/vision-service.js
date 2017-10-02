@@ -43,7 +43,8 @@ exports.classify = (imageURL) => new Promise((resolve, reject) => {
         var probability =0;
         var bodyObj = JSON.parse(response.body);
         bodyObj.probabilities.forEach(probab => {
-          if(probability <= probab.probability){
+          if(probability <= parseFloat(probab.probability)){
+            probability = parseFloat(probab.probability);
             label = probab.label.toLowerCase();
           }
         });
